@@ -7,27 +7,30 @@
     android:layout_height="match_parent"
     tools:context=".TelaReviewUsu">
 
+    <ImageButton
+        android:id="@+id/btnback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/seta_azul"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnEnviar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnback">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageButton
-                android:id="@+id/btnback"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="40dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/seta_azul" />
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/logoUnifor"
@@ -39,29 +42,34 @@
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/logoalexandriavirtual"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-                tools:layout_editor_absoluteX="155dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnback" />
 
             <TextView
                 android:id="@+id/tituloAlexandria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:fontFamily="@font/trocchi"
                 android:text="Reviews"
                 android:textColor="#247AE8"
-                android:textSize="32dp" />
+                android:textSize="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logoUnifor" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerLivros"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
-                android:layout_marginTop="16dp"
                 android:clipToPadding="false"
                 android:overScrollMode="never"
                 android:paddingHorizontal="32dp"
                 android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tituloAlexandria"
                 tools:listitem="@layout/item_livro_review" />
 
             <TextView
@@ -69,12 +77,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="8dp"
                 android:text="Sua Avaliação"
                 android:textColor="#000000"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerLivros" />
 
             <LinearLayout
                 android:id="@+id/layoutEstrelas"
@@ -82,7 +91,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="100dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSuaAvaliacao">
 
                 <ImageView
                     android:id="@+id/estrela1"
@@ -134,26 +146,34 @@
                 android:id="@+id/editAvaliacao"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/edittext_background"
                 android:gravity="top|start"
                 android:hint="Escreva aqui sua avaliação"
                 android:inputType="textMultiLine"
-                android:padding="12dp" />
+                android:padding="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutEstrelas" />
 
-            <Button
-                android:id="@+id/btnEnviar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#247AE8"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="ENVIAR AVALIAÇÃO"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF" />
-
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#247AE8"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="ENVIAR AVALIAÇÃO"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="10dp"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
